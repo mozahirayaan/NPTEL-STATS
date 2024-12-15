@@ -3,6 +3,7 @@ import axios from "axios";
 import { configDotenv } from "dotenv";
 
 const MONGO_URI = process.env.MONGODB_ATLAS;
+const URL = process.env.URL;
 
 if (mongoose.connection.readyState === 0) {
     await mongoose.connect(MONGO_URI, {
@@ -33,7 +34,7 @@ console.log("MongoDB connection state:", mongoose.connection.readyState);
 // Function to fetch course data and stats
 const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api1/assets/course.json");
+      const response = await axios.get(URL);
   
       let courseData = [];
   
