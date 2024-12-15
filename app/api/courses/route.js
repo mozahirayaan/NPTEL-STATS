@@ -106,7 +106,7 @@ const fetchData = async () => {
     try {
       // Check if data already exists and is recent
       const data = await CourseModel.findOne({
-        cacheTimestamp: { $gte: new Date() - 24 * 60 * 60 * 1000 },
+        cacheTimestamp: { $gte: new Date() - 60*24 * 60 * 60 * 1000 },
       });
       
       if (data) {
