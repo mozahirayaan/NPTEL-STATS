@@ -1,0 +1,68 @@
+.course-title a {
+    color: blue;
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth transition for color */
+  }
+  
+  .course-title a:hover {
+    color: red; /* Changes color to red on hover */
+  }
+  
+  
+  h1 {
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  /* Center the table and make it responsive */
+  .table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+  }
+  
+  .gold {
+    color: #FFD700;
+    font-weight: bold;
+  }
+  
+  .course-title {
+    text-align: left;
+  }
+  
