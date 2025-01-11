@@ -6,10 +6,7 @@ const MONGO_URI = process.env.MONGODB_ATLAS;
 const API_URL = process.env.API_URL;
 
 if (mongoose.connection.readyState === 0) {
-    await mongoose.connect(MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(MONGO_URI);
   }
 
 
