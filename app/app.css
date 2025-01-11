@@ -8,7 +8,9 @@
     color: red; /* Changes color to red on hover */
   }
   
+
   
+
   h1 {
     color: #444;
     margin-bottom: 20px;
@@ -17,19 +19,17 @@
   /* Center the table and make it responsive */
   .table-container {
     width: 100%;
-    display: flex;
-    justify-content: center;
     overflow-x: auto;
   }
   
   table {
-    width: 800px;
-    max-width: 100%;
+    width: 60%;
     margin: 0 auto;
     border-collapse: collapse;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
   }
+  
   
   th, td {
     padding: 12px 15px;
