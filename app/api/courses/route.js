@@ -37,7 +37,7 @@ const fetchData = async () => {
   
       // Process the course data
       for (let i = 0; i < response.data.data.length; i++) {
-        if (response.data.data[i].discipline_id === 106) {
+        if (response.data.data[i].discipline_id === 109||response.data.data[i].discipline_id === 110||response.data.data[i].discipline_id === 127) {
           courseData.push({
             id: response.data.data[i].id,
             title: response.data.data[i].title,
@@ -102,13 +102,13 @@ const fetchData = async () => {
   export async function GET() {
     try {
       // Check if data already exists and is recent
-      const data = await CourseModel.findOne({
+      const data = await CourseModel.find({
         cacheTimestamp: { $gte: new Date() - 60*24 * 60 * 60 * 1000 },
       });
       
       if (data) {
         // If data is available and recent, return it
-        return new Response(JSON.stringify(data.data), {
+        return new Response(JSON.stringify(data), {
           headers: { "Content-Type": "application/json" },
           status: 200,
         });
