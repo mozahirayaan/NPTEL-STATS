@@ -6,6 +6,7 @@ import "./app.css";
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
+  const [allcourses, setAllCourses] = useState([{}]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -78,15 +79,28 @@ const Home = () => {
     }
   };  */
 
+  const handleComputerClick=()=>{
+    const filteredCourses = allcourses.filter(course => course.dept === "Computer Science" );
+    setCourses(filteredCourses[0].data);
+  }
+
+  const handleOtherClick=()=>{
+    const filteredCourses = allcourses.filter(course => course.dept === "Other" );
+    setCourses(filteredCourses[0].data);
+  }
 
 
-  const fetchData=async ()=>{
-    try{
-      const response=await axios.get("/api/courses");
-      setCourses(response.data); 
-      console.log(response.data);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/api/courses");
+      setAllCourses(response.data);
+      const filteredCourses = response.data.filter(course => course.dept === 'Computer Science' );
+      console.log(filteredCourses);
+    setCourses(filteredCourses[0].data);
+      
     }
-    catch(err){
+    catch (err) {
       setError("Failed to fetch data. Please try again later.");
       console.error("Error fetching course data:", err);
     }
@@ -103,7 +117,12 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h1>NPTEL Stats (Computer Science Course)</h1>
+      <h1>NPTEL Stats </h1>
+      <div className="button-container">
+      <button className="choice-button" onClick={handleComputerClick}>Computer Science</button>
+      <button className="choice-button" onClick={handleOtherClick}>Other</button>
+    </div>
+
 
       {error && <p className="error">{error}</p>}
 
@@ -123,10 +142,10 @@ const Home = () => {
               courses.map((course, index) => (
                 <tr key={index}>
                   <td className="course-title"><a href={`https://nptel.ac.in/courses/${course.id}`} target="_blank" rel="noopener noreferrer">{course.title}</a></td>
-                  <td className="gold">{course.registered>=0 ? course.registered: "NA"}</td>
-                  <td className="gold">{course.average>=0 ? course.average : "NA"}</td>
-                  <td className="gold">{course.gold>=0 ? ((course.gold * 100) / course.registered).toFixed(2): "NA"} % </td>
-                  <td className="gold">{course.silver>=0 ? ((course.silver * 100) / course.registered).toFixed(2) : "NA" } %</td>
+                  <td className="gold">{course.registered >= 0 ? course.registered : "NA"}</td>
+                  <td className="gold">{course.average >= 0 ? course.average : "NA"}</td>
+                  <td className="gold">{course.gold >= 0 ? ((course.gold * 100) / course.registered).toFixed(2) : "NA"} % </td>
+                  <td className="gold">{course.silver >= 0 ? ((course.silver * 100) / course.registered).toFixed(2) : "NA"} %</td>
                 </tr>
               ))
             ) : (
