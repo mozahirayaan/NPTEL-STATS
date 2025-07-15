@@ -65,4 +65,34 @@
   .course-title {
     text-align: left;
   }
+
+  .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.choice-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.choice-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.choice-button:active {
+  background-color: #4CAF50;
+  transform: scale(0.98);
+}
+
   
